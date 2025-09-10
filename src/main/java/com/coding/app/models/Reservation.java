@@ -33,6 +33,7 @@ public class Reservation implements Serializable{
 	private long dateCreation = System.currentTimeMillis();
 	
 	private Date startDay;
+
     private Date endDay;
 			
 	/**

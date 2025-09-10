@@ -11,6 +11,8 @@ public class ReservationRequest {
 
     private String username;
 
+    private Long carId;
+
     private String startDate;
 
     private String endDate;
