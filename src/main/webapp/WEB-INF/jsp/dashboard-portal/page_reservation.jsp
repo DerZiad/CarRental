@@ -41,9 +41,10 @@
                         <tr>
                             <th>User</th>
                             <th>Car Information</th>
-                            <th>Car Price</th>
+                            <th>Car Price (€)</th>
                             <th>Reservation Date</th>
                             <th>Return Date</th>
+                            <th>Total Revenue (€)</th>
                             <th>Reservation Status</th>
                             <th>Confirmation</th>
                             <th>Actions</th>
@@ -59,6 +60,10 @@
                                 <td style="color: black">${reservation.car.price}</td>
                                 <td style="color: black">${reservation.startDay}</td>
                                 <td style="color: black">${reservation.endDay}</td>
+                                <td style="color: black">
+                                    <c:set var="days" value="${(reservation.endDay.time - reservation.startDay.time) / (1000*60*60*24) + 1}" />
+                                    <c:out value="${reservation.car.price * days}" />
+                                </td>
                                 <td style="color: black">
                                     <c:choose>
                                         <c:when test="${reservation.isOngoing()}">

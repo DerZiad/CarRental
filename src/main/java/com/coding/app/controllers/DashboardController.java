@@ -60,7 +60,7 @@ class ReservationViewAttributes {
 
     public static final String SHARED_RESERVATION_URI = "/shared/reservation";
     public static final String JSP_ADMIN_RESERVATION = "dashboard-portal/page_reservation";
-    public static final String REDIRECT_RESERVATION = "redirect:/manager/reservation";
+    public static final String REDIRECT_RESERVATION = "redirect:/shared/reservation";
     public final static String MODEL_AND_VIEW_RESERVATIONS_ATTRIBUTE = "reservations";
 }
 
