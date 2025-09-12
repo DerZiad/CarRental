@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class ReservationRequest {
 
-    private String username;
-
     private Long carId;
 
     private String startDate;

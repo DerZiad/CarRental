@@ -14,6 +14,9 @@ import com.coding.app.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * Service for managing car entities, including CRUD operations.
+ */
 @Service
 @RequiredArgsConstructor
 public class CarService {
@@ -21,6 +24,13 @@ public class CarService {
     private final CarRepository carRepository;
     private final HistoryService historyService;
 
+    /**
+     * Adds a new car to the repository.
+     *
+     * @param carRequest The car data transfer object.
+     * @param imageFile  The image file for the car.
+     * @throws InvalidObjectException if validation fails.
+     */
     public void addCar(final CarRequest carRequest, final MultipartFile imageFile) throws InvalidObjectException {
         final Car car = new Car();
         car.setBrand(carRequest.getBrand());
@@ -43,20 +53,44 @@ public class CarService {
         }
     }
 
+    /**
+     * Deletes a car by its ID.
+     *
+     * @param carId The ID of the car to delete.
+     * @throws NotFoundException if the car is not found.
+     */
     public void deleteCar(final Long carId) throws NotFoundException {
         final Car car = carRepository.findById(carId).orElseThrow(() -> new NotFoundException("Car not found"));
         carRepository.delete(car);
         historyService.addHistory("Car deleted: " + car.getBrand());
     }
 
+    /**
+     * Retrieves a car by its ID.
+     *
+     * @param carId The ID of the car.
+     * @return The Car object.
+     * @throws NotFoundException if the car is not found.
+     */
     public Car getCar(final Long carId) throws NotFoundException {
         return carRepository.findById(carId).orElseThrow(() -> new NotFoundException("Car not found"));
     }
 
+    /**
+     * Retrieves all cars.
+     *
+     * @return List of all cars.
+     */
     public List<Car> getAllCars() {
         return carRepository.findAll();
     }
 
+    /**
+     * Updates an existing car.
+     *
+     * @param car The car to update.
+     * @throws InvalidObjectException if validation fails.
+     */
     public void updateCar(final Car car) throws InvalidObjectException {
         final HashMap<String, String> errors = Utils.validate(car);
         if (errors.isEmpty()) {

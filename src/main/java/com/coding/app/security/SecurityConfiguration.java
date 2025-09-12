@@ -40,7 +40,7 @@ public class SecurityConfiguration {
 	private final UserDetailsServiceImpl userDetailsServiceImpl;
 
 	private static final String PRIVATE_REMEMBER_KEY = "hellofriendimsmookerzz";
-	private static final int DELAI = 24 * 3600;
+	private static final int DELAY = 24 * 3600;
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
@@ -53,6 +53,7 @@ public class SecurityConfiguration {
 						.requestMatchers("/signup").not().authenticated()
 						.requestMatchers("/verification").authenticated()
 						.requestMatchers("/logout").authenticated()
+                        .requestMatchers("/api/reserve").authenticated()
 						.requestMatchers(ServerRole.MANAGER.getPrivateSpace() + "/**").hasAnyRole(ServerRole.ADMIN.getRole(), ServerRole.MANAGER.getRole())
 						.requestMatchers(ServerRole.ADMIN.getPrivateSpace() + "/**").hasRole(ServerRole.ADMIN.getRole())
 						.requestMatchers("/").hasRole(ServerRole.CLIENT.getRole())
@@ -72,7 +73,7 @@ public class SecurityConfiguration {
 						.logoutSuccessUrl("/")
 				)
 				.rememberMe(r -> r
-						.tokenValiditySeconds(DELAI)
+						.tokenValiditySeconds(DELAY)
 						.key(PRIVATE_REMEMBER_KEY)
 						.rememberMeParameter("rememberme")
 						.userDetailsService(userDetailsServiceImpl)

@@ -10,6 +10,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
@@ -41,12 +42,14 @@ public class Reservation implements Serializable{
 	 * */
 	
 	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
-	@MapsId("idUser")
+	@MapsId("username") // maps the username field in KeyReservation
+	@JoinColumn(name = "username", referencedColumnName = "username")
 	private User user;
 	
 	
 	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
-	@MapsId("idVoiture")
+	@MapsId("carId") // maps the carId field in KeyReservation
+	@JoinColumn(name = "carId", referencedColumnName = "id")
 	@JsonIgnore
 	private Car car;
 			

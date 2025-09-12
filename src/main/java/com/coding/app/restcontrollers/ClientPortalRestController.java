@@ -1,7 +1,9 @@
 package com.coding.app.restcontrollers;
 
 import com.coding.app.dto.ReservationRequest;
+import com.coding.app.exceptions.ReservationException;
 import com.coding.app.services.ClientPortalService;
+import com.coding.app.services.ReservationService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class ClientPortalRestController {
 
     private final ClientPortalService clientPortalService;
+    private final ReservationService reservationService;
 
     @GetMapping("/cars")
     public HttpEntity<?> getCars() {
@@ -29,8 +32,8 @@ public class ClientPortalRestController {
     }
 
 	@PostMapping("/reserve")
-	public HttpEntity<?> reserve(@RequestBody ReservationRequest reservationRequest) throws NotFoundException {
-        // Build reservation service
+	public HttpEntity<?> reserve(@RequestBody ReservationRequest reservationRequest) throws ReservationException, NotFoundException {
+        reservationService.createReservation(reservationRequest);
         return ResponseEntity.accepted().build();
 	}
 }

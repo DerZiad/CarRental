@@ -16,6 +16,9 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Service for sending emails, including templated emails for different types.
+ */
 @Service
 @RequiredArgsConstructor
 public class EmailService {
@@ -28,6 +31,12 @@ public class EmailService {
 
 	private final JavaMailSender mailer;
 
+	/**
+	 * Sends an email using the provided Email record.
+	 *
+	 * @param email The email to send.
+	 * @throws MessagingException if sending fails.
+	 */
 	public void sendEmail(final Email email) throws MessagingException {
 		final MimeMessage message = mailer.createMimeMessage();
 		final MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -41,8 +50,16 @@ public class EmailService {
 		mailer.send(message);
 	}
 
+	/**
+	 * Record representing an email with templating support.
+	 */
 	public record Email(String to, String subject, EmailType type, Map<String, String> bodyFields) {
 
+		/**
+		 * Generates the email message by loading and filling the template.
+		 *
+		 * @return The generated HTML message.
+		 */
 		public String generateMessage() {
 			final ResourceLoader resourceLoader = new DefaultResourceLoader();
 			try {

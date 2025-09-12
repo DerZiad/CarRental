@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class KeyReservation implements Serializable{
 
-	@Column(name = "idUser")
-	private String idUser;
+	@Column(name = "username")
+	private String username;
 
-	@Column(name = "idVoiture")
-	private Long idVoiture;
+	@Column(name = "carId")
+	private Long carId;
 
 }
