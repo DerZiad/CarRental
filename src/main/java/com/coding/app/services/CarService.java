@@ -1,18 +1,16 @@
 package com.coding.app.services;
 
-import java.util.HashMap;
-import java.util.List;
-
 import com.coding.app.dto.CarRequest;
-import org.springframework.stereotype.Service;
-
 import com.coding.app.exceptions.InvalidObjectException;
 import com.coding.app.exceptions.NotFoundException;
 import com.coding.app.models.Car;
 import com.coding.app.repository.CarRepository;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Service for managing car entities, including CRUD operations.

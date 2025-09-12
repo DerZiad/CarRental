@@ -1,29 +1,26 @@
 package com.coding.app.services;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
 import com.coding.app.dto.ReservationRequest;
-import com.coding.app.exceptions.ReservationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
-
 import com.coding.app.exceptions.NotFoundException;
+import com.coding.app.exceptions.ReservationException;
 import com.coding.app.models.Car;
 import com.coding.app.models.Reservation;
 import com.coding.app.models.User;
 import com.coding.app.models.enums.EmailType;
 import com.coding.app.models.key.KeyReservation;
 import com.coding.app.repository.ReservationRepository;
-
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Service for managing car reservations, including creation, confirmation, and deletion.

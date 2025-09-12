@@ -1,17 +1,5 @@
 package com.coding.app.services;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
-
 import com.coding.app.exceptions.InvalidObjectException;
 import com.coding.app.exceptions.NotFoundException;
 import com.coding.app.models.User;
@@ -20,10 +8,19 @@ import com.coding.app.models.enums.EmailType;
 import com.coding.app.models.enums.ServerRole;
 import com.coding.app.repository.UserRepository;
 import com.coding.app.repository.VerificationCodeRepository;
-
 import jakarta.servlet.http.HttpServletRequest;
-import jdk.dynalink.linker.LinkerServices;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Service for handling user authentication, registration, and verification.

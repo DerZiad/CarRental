@@ -1,11 +1,10 @@
 package com.coding.app.controllers;
 
-import org.springframework.web.servlet.ModelAndView;
-
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.servlet.ModelAndView;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DashboardUtils {

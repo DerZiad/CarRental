@@ -1,8 +1,9 @@
 package com.coding.app.services;
 
-import java.io.IOException;
-import java.util.Map;
-
+import com.coding.app.models.enums.EmailType;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
@@ -10,11 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.coding.app.models.enums.EmailType;
-
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
-import lombok.RequiredArgsConstructor;
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * Service for sending emails, including templated emails for different types.

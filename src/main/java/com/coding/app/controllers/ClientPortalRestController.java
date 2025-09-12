@@ -1,16 +1,14 @@
-package com.coding.app.restcontrollers;
+package com.coding.app.controllers;
 
 import com.coding.app.dto.ReservationRequest;
+import com.coding.app.exceptions.NotFoundException;
 import com.coding.app.exceptions.ReservationException;
 import com.coding.app.services.ClientPortalService;
 import com.coding.app.services.ReservationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.coding.app.exceptions.NotFoundException;
-
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api")

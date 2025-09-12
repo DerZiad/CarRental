@@ -1,37 +1,6 @@
 package com.coding.app.controllers;
 
-import static com.coding.app.controllers.CarViewAttributes.ATTR_BRANDS;
-import static com.coding.app.controllers.CarViewAttributes.ATTR_CAR;
-import static com.coding.app.controllers.CarViewAttributes.ATTR_CARS;
-import static com.coding.app.controllers.CarViewAttributes.ATTR_CATEGORIES;
-import static com.coding.app.controllers.CarViewAttributes.ATTR_ERRORS;
-import static com.coding.app.controllers.CarViewAttributes.ATTR_YEARS;
-import static com.coding.app.controllers.CarViewAttributes.CAR_URI;
-import static com.coding.app.controllers.CarViewAttributes.PAGE_CAR;
-import static com.coding.app.controllers.CarViewAttributes.REDIRECT_CAR;
-import static com.coding.app.controllers.DashboardViewAttributes.CURRENT_USER;
-import static com.coding.app.controllers.DashboardViewAttributes.JSP_SHARED_DASHBOARD;
-import static com.coding.app.controllers.DashboardViewAttributes.SHARED_URI;
-import static com.coding.app.controllers.ReservationViewAttributes.JSP_ADMIN_RESERVATION;
-import static com.coding.app.controllers.ReservationViewAttributes.*;
-import static com.coding.app.controllers.ReservationViewAttributes.SHARED_RESERVATION_URI;
-
-import java.time.Year;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.coding.app.dto.CarRequest;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.ws.server.endpoint.annotation.RequestPayload;
-
 import com.coding.app.exceptions.InvalidObjectException;
 import com.coding.app.exceptions.NotFoundException;
 import com.coding.app.models.Car;
@@ -42,10 +11,23 @@ import com.coding.app.models.enums.Category;
 import com.coding.app.services.CarService;
 import com.coding.app.services.ReservationService;
 import com.coding.app.services.UserService;
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+
+import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.coding.app.controllers.CarViewAttributes.*;
+import static com.coding.app.controllers.DashboardViewAttributes.*;
+import static com.coding.app.controllers.ReservationViewAttributes.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class DashboardViewAttributes {
