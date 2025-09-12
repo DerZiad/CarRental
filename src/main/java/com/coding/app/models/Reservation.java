@@ -53,7 +53,12 @@ public class Reservation implements Serializable{
 	@JsonIgnore
 	private Car car;
 			
-	public boolean isDead() {
-		return false;
+	public boolean completed() {
+		return new Date(System.currentTimeMillis()).after(this.endDay);
 	}
+
+    public boolean isOngoing() {
+    	final Date today = new Date(System.currentTimeMillis());
+        return (today.equals(this.startDay) || today.after(this.startDay)) && (today.equals(this.endDay) || today.before(this.endDay));
+    }
 }

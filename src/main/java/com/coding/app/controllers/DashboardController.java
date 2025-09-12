@@ -87,18 +87,6 @@ public final class DashboardController {
     private final ReservationService reservationService;
     private final CarService carService;
 
-    @GetMapping(SHARED_RESERVATION_URI + "/accept/{cardId}/{username}")
-    public ModelAndView acceptReservation(@PathVariable("cardId") final Long cardId, @PathVariable("username") final String username) throws NotFoundException {
-        reservationService.acceptReservation(cardId, username);
-        return new ModelAndView(REDIRECT_RESERVATION);
-    }
-
-    @GetMapping(SHARED_RESERVATION_URI + "/delete/{cardId}/{username}")
-    public ModelAndView deleteReservation(@PathVariable("cardId") final Long cardId, @PathVariable("username") final String username) throws NotFoundException {
-        reservationService.deleteReservation(cardId, username);
-        return new ModelAndView(REDIRECT_RESERVATION);
-    }
-
     @GetMapping(CAR_URI)
     public ModelAndView showCarPage() {
         return getPageCar();
@@ -164,9 +152,21 @@ public final class DashboardController {
         final ModelAndView model = new ModelAndView(JSP_ADMIN_RESERVATION);
         configureCurrentUser(model);
         DashboardUtils.activateMenu(DashboardUtils.NavbarMenu.RESERVATIONS, model);
-        final List<Reservation> reservations = reservationService.getReservationsByFilter(Reservation::isConfirmed);
+        final List<Reservation> reservations = reservationService.getAllReservations();
         model.addObject(MODEL_AND_VIEW_RESERVATIONS_ATTRIBUTE, reservations);
         return model;
+    }
+
+    @GetMapping(SHARED_RESERVATION_URI + "/accept/{cardId}/{username}")
+    public ModelAndView acceptReservation(@PathVariable("cardId") final Long cardId, @PathVariable("username") final String username) throws NotFoundException {
+        reservationService.acceptReservation(cardId, username);
+        return new ModelAndView(REDIRECT_RESERVATION);
+    }
+
+    @GetMapping(SHARED_RESERVATION_URI + "/delete/{cardId}/{username}")
+    public ModelAndView deleteReservation(@PathVariable("cardId") final Long cardId, @PathVariable("username") final String username) throws NotFoundException {
+        reservationService.deleteReservation(cardId, username);
+        return new ModelAndView(REDIRECT_RESERVATION);
     }
 
     // Privates
