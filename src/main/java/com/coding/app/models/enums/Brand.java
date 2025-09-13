@@ -1,0 +1,71 @@
+package com.coding.app.models.enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
+public enum Brand {
+
+    RENAULT("Renault"), PEUGEOT("Peugeot"), CITROEN("Citroën"), BMW("BMW"), VOLKSWAGEN("Volkswagen"),
+    ABARTH("Abarth"), ABI("Abi"), AC("AC"), ACREA("Acrea"), ADLER("Adler"), ADRIA("Adria"), AIWAYS("Aiways"),
+    AIXAM("Aixam"), ALEKO("Aleko"), ALKE("Alke"), ALPINA("Alpina"), ALPINE("Alpine"), ALVIS("Alvis"),
+    AMC("AMC"), AMPHICAR("Amphicar"), ANAIG("Anaig"), APAL("Apal"), ARIEL("Ariel"), ARO("ARO"),
+    ARTEGA("Artega"), ATLAS("Atlas"), AUBURN("Auburn"), AUDI("Audi"), AUSTIN("Austin"),
+    AUTOBIANCHI("Autobianchi"), AUTOSTAR("Autostar"), AUVERLAND("Auverland"), AXXOR("Axxor"),
+    BELLIER("Bellier"), BENTLEY("Bentley"), BERLIET("Berliet"), BERTONE("Bertone"), BITTER("Bitter"),
+    BIZZARRINI("Bizzarrini"), BOLLORE("Bolloré"), BOOXT("Booxt"), BORGWARD("Borgward"), BREMACH("Bremach"),
+    BRISTOL("Bristol"), BUGATTI("Bugatti"), BUICK("Buick"), BURSTNER("Bürstner"), CADILLAC("Cadillac"),
+    CARAVELAIR("Caravelair"), CARBODIES("Carbodies"), CARDINAL("Cardinal"), CARRIAGE("Carriage"),
+    CARVER("Carver"), CASALINI("Casalini"), CASITA("Casita"), CATERHAM("Caterham"), CG("CG"),
+    CHATENET("Chatenet"), CHEVROLET("Chevrolet"), CHRYSLER("Chrysler"), CLEMENSON("Clemenson"),
+    CLENET("Clenet"), CONSTRUCTAM("Constructam"), COSTE("Coste"), COURB("Courb"), CUPRA("Cupra"),
+    DACIA("Dacia"), DAEWOO("Daewoo"), DAF("DAF"), DAIHATSU("Daihatsu"), DAIMLER("Daimler"),
+    DALLARA("Dallara"), DANGEL("Dangel"), DARMONT("Darmont"), DATSUN("Datsun"), DELAGE("Delage"),
+    DELAHAYE("Delahaye"), DELTA("Delta"), DETHLEFFS("Dethleffs"), DEVINCI("DevInci"), DIGUE("Digue"),
+    DKW("DKW"), DODGE("Dodge"), DONKERVOORT("Donkervoort"), DONNET("Donnet"), DS("DS"), DUE("Due"),
+    EAGLE("Eagle"), EBRO("Ebro"), EDSEL("Edsel"), ELDDIS("Elddis"), ELV("ELV"), EMBUGGY("Embuggy"),
+    ERAD("Erad"), ERIBA("Eriba"), ESTEREL("Esterel"), ESTRIMA("Estrima"), EUROSTAR("Eurostar"),
+    EXCALIBUR("Excalibur"), FENDT("Fendt"), FERRARI("Ferrari"), FIAT("Fiat"), FISKER("Fisker"),
+    FLEURETTE("Fleurette"), FORD("Ford"), FORNASARI("Fornasari"), FSO("FSO"), GILLET("Gillet"),
+    GINETTA("Ginetta"), GLAS("Glas"), GMC("GMC"), GME("GME"), GOUPIL("Goupil"), GRANDIN("Grandin"),
+    GRECAV("Grecav"), GRUAU("Gruau"), GUMPERT("Gumpert"), HALMARQ("Halmarq"), HILLMAN("Hillman"),
+    HOBBY("Hobby"), HOMMELL("Hommell"), HONDA("Honda"), HOTCHKISS("Hotchkiss"), HUDSON("Hudson"),
+    HUMBER("Humber"), HUMMER("Hummer"), HYUNDAI("Hyundai"), IMPERIAL("Imperial"), INEOS("Ineos"),
+    INFINITI("Infiniti"), INNOCENTI("Innocenti"), INTERMECCANICA("Intermeccanica"),
+    INTERNATIONAL("International"), ISO("ISO"), ISUZU("Isuzu"), ITALCAR("Italcar"), IVECO("Iveco"),
+    JAGUAR("Jaguar"), JEEP("Jeep"), JENSEN("Jensen"), JIAYUAN("Jiayuan"), KARMA("Karma"),
+    KEYSTONE("Keystone"), KIA("Kia"), KIP("Kip"), KNAUS("Knaus"), KOENIGSEGG("Koenigsegg"),
+    KTM("KTM"), LADA("Lada"), LAGONDA("Lagonda"), LAMBORGHINI("Lamborghini"), LANCIA("Lancia"),
+    LAND_ROVER("Land Rover"), LANDWIND("Landwind"), LANTANA("Lantana"), LARAKI("Laraki"),
+    LDV("LDV"), LEFEUNE("Lefeune"), LEVC("LEVC"), LEXUS("Lexus"), LIGIER("Ligier"), LINCOLN("Lincoln"),
+    LMC("LMC"), LORD("Lord"), LOTUS("Lotus"), MAHINDRA("Mahindra"), MAN("MAN"), MARCADIER("Marcadier"),
+    MARCOS("Marcos"), MARTIN("Martin"), MARUTI("Maruti"), MASERATI("Maserati"), MATRA("Matra"),
+    MAYBACH("Maybach"), MAZDA("Mazda"), MCLAREN("McLaren"), MEGA("Mega"), MERCEDES("Mercedes-Benz"),
+    MERCURY("Mercury"), MESSERSCHMITT("Messerschmitt"), MEV("MEV"), MG("MG"), MICROCAR("Microcar"),
+    MINAUTO("Minauto"), MINI("Mini"), MITSUBISHI("Mitsubishi"), MITSUOKA("Mitsuoka"),
+    MOBILIS("Mobilis"), MONTANA("Montana"), MONTEVERDI("Monteverdi"), MORGAN("Morgan"),
+    MORRIS("Morris"), MVS("MVS"), NASH("Nash"), NECKAR("Neckar"), NEWMAR("Newmar"),
+    NEWYARK("Newyark"), NISSAN("Nissan"), NOBLE("Noble"), NOSMOKE("Nosmoke"), NSU("NSU"),
+    OLDSMOBILE("Oldsmobile"), OPEL("Opel"), OSI("OSI"), PACKARD("Packard"), PAGANI("Pagani"),
+    PANHARD("Panhard"), PANTHER("Panther"), PEGASO("Pegaso"), PGO("PGO"), PIAGGIO("Piaggio"),
+    PLUMA("Pluma"), PLYMOUTH("Plymouth"), POLESTAR("Polestar"), POLSKI("Polski"), PONTIAC("Pontiac"),
+    PORSCHE("Porsche"), PROTON("Proton"), QOROS("Qoros"), RACLET("Raclet"), RADICAL("Radical"),
+    RAM("RAM"), RAPIDO("Rapido"), RAULT("Rault"), REALM("Realm"), RELIANT("Reliant"), RILEY("Riley"),
+    RIVIAN("Rivian"), ROSENGART("Rosengart"), ROVER("Rover"), SAAB("Saab"), SAIC("SAIC"),
+    SALEEN("Saleen"), SALMSON("Salmson"), SANTANA("Santana"), SAURIUM("Saurium"), SAVEL("Savel"),
+    SAVIEM("Saviem"), SCANIA("Scania"), SCION("Scion"), SEAT("Seat"), SECMA("Secma"), SERES("Seres"),
+    SHELBY("Shelby"), SIMCA("Simca"), SINGER("Singer"), SKODA("Škoda"), SMART("Smart"), SMS("SMS"),
+    SOVAMAG("Sovamag"), SPECTRE("Spectre"), SPYKER("Spyker"), SSANGYONG("SsangYong"), STAR("Star"),
+    STERCKEMAN("Sterckeman"), STUDEBAKER("Studebaker"), STUTZ("Stutz"), SUBARU("Subaru"),
+    SUNBEAM("Sunbeam"), SUZUKI("Suzuki"), TABBERT("Tabbert"), TALBOT("Talbot"), TATA("Tata"),
+    TEILHOL("Teilhol"), TESLA("Tesla"), THINK("Think"), TISCHER("Tischer"), TOYOTA("Toyota"),
+    TRABANT("Trabant"), TRAVEL("Travel"), TRIGANO("Trigano"), TRIUMPH("Triumph"), TVR("TVR"),
+    ULTIMA("Ultima"), UMM("UMM"), VAUXHALL("Vauxhall"), VELAM("Velam"), VENTURI("Venturi"),
+    VESPA("Vespa"), VINFAST("VinFast"), VOLTEIS("Volteis"), VOLVO("Volvo"), WEIPPERT("Weippert"),
+    WESTFIELD("Westfield"), WIESMANN("Wiesmann"), WILK("Wilk"), WILLERBY("Willerby"), WILLYS("Willys"),
+    WOLSELEY("Wolseley"), XINYANG("Xinyang"), ZASTAVA("Zastava"), ALFA_ROMEO("Alfa Romeo"),
+    ACURA("Acura"), GENESIS("Genesis"), LUCID("Lucid");
+
+    private final String displayName;
+}

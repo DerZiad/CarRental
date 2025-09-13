@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+    <style>
+        .fancy {
+        font-family: "Brush Script MT", cursive;
+        font-size: 64px;
+        fill: #fed136;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+    <text x="10" y="60" class="fancy">My Car</text>
+</svg>

@@ -1,0 +1,25 @@
+table.table {
+    margin-bottom: 0;
+}
+table.table thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+table.table thead th.sortable {
+    cursor: pointer;
+}
+table.table thead tr:nth-child(1) th:nth-child(3){
+    min-width: 300px;
+}
+table.table th:not(:last-child),
+table.table td:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+
+table.table td.ready {
+    box-shadow: 0 0 0 2px #66afe9 inset
+}
+
+.col-sm-12 {
+    margin-bottom: 900px;
+}

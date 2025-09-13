@@ -1,0 +1,11 @@
+body {
+    background: url('/home/assets/img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.form-container {
+    background: rgba(255, 255, 255);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
