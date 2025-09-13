@@ -170,7 +170,7 @@
                 </div>
                 <div class="container py-4">
                     <div class="row g-4 justify-content-center align-items-stretch">
-                        <c:if test="${username ne null}">
+                        <c:if test="${user ne null}">
                             <div class="col-12 col-md-6 d-flex align-items-stretch">
                                 <div class="card shadow-lg rounded-3 w-100 h-100 d-flex flex-column justify-content-center" style="padding:2rem; min-height:370px;">
                                     <h5 class="card-title mb-4 text-center">Reservation Dates</h5>

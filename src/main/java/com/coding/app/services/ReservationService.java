@@ -162,7 +162,7 @@ public class ReservationService {
         return Map.of(
                 "name", user.getUsername(),
                 "informationText", "Your reservation for the vehicle " +
-                        car.getBrand().name() + " (" + car.getCategory() + ") has been " + action + "."
+                        car.getBrand().getDisplayName() + " (" + car.getCategory().getDisplayName() + ") has been " + action + "."
         );
     }
 

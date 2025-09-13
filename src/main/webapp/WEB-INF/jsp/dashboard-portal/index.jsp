@@ -4,218 +4,126 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <jsp:include page="dashboard_header.jsp" />
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <img class="page-title-icon" src="<c:url value='/images/logo.png'/>" alt="Logo">
-            <div>
-                MyCar Dashboard
-                <div class="page-title-subheading">This dashboard displays statistics and all relevant information about car rentals on the website.</div>
+<div class="container-fluid py-4" style="background-color: #f8f9fa;">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex align-items-center mb-2">
+                <img src="<c:url value='/images/logo.png'/>" alt="Logo" style="height:48px;width:48px;" class="me-3 rounded shadow-sm">
+                <div>
+                    <h2 class="fw-bold mb-0 text-primary">Car Rental Admin Dashboard</h2>
+                    <p class="text-muted mb-0">Comprehensive overview and management of your car rental business. Track performance, monitor reservations, and manage clients efficiently.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-midnight-bloom">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Cars</div>
-                    <div class="widget-subheading">The total number of cars available in stock</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white">
-                        <span>${voyagesnumber}</span>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card shadow border-0 text-center bg-primary text-white">
+                <div class="card-body">
+                    <div class="mb-2">
+                        <i class="bi bi-car-front-fill fs-2 text-white"></i>
                     </div>
+                    <h6 class="card-title fw-bold">Total Cars</h6>
+                    <p class="card-text text-white-50 small">Current fleet size</p>
+                    <span class="display-6 fw-bold"><c:out value="${dashboardData.totalCars()}"/></span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-arielle-smile">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Clients</div>
-                    <div class="widget-subheading">Number of registered clients on the website</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white">
-                        <span>${equipesnumber}</span>
+        <div class="col-md-3">
+            <div class="card shadow border-0 text-center bg-success text-white">
+                <div class="card-body">
+                    <div class="mb-2">
+                        <i class="bi bi-people-fill fs-2 text-white"></i>
                     </div>
+                    <h6 class="card-title fw-bold">Clients</h6>
+                    <p class="card-text text-white-50 small">Registered users</p>
+                    <span class="display-6 fw-bold"><c:out value="${dashboardData.totalUsers()}"/></span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-grow-early">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Reservations</div>
-                    <div class="widget-subheading">Number of paid reservations</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white">
-                        <span>${reservationsnumber}</span>
+        <div class="col-md-3">
+            <div class="card shadow border-0 text-center bg-warning text-dark">
+                <div class="card-body">
+                    <div class="mb-2">
+                        <i class="bi bi-calendar-check-fill fs-2 text-dark"></i>
                     </div>
+                    <h6 class="card-title fw-bold">Reservations</h6>
+                    <p class="card-text text-dark small">Total bookings</p>
+                    <span class="display-6 fw-bold">${dashboardData.totalReservations()}</span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-premium-dark">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Total Hotels</div>
-                    <div class="widget-subheading">Number of recognized hotels</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-warning">
-                        <span>${hotelsnumber}</span>
+        <div class="col-md-3">
+            <div class="card shadow border-0 text-center bg-danger text-white">
+                <div class="card-body">
+                    <div class="mb-2">
+                        <i class="bi bi-cash-coin fs-2 text-white"></i>
                     </div>
+                    <h6 class="card-title fw-bold">Monthly Revenue</h6>
+                    <p class="card-text text-white-50 small">Current month's earnings</p>
+                    <span class="display-6 fw-bold">${dashboardData.totalGainOfTheMonth()} €</span>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-12 col-lg-12">
-        <div class="mb-3 card">
-            <div class="card-header-tab card-header-tab-animation card-header">
-                <div class="card-header-title">
-                    <i class="header-icon lnr-apartment icon-gradient bg-love-kiss">
-                    </i> Most Visited Countries Overview
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="tab-content">
-
-                    <div class="tab-pane show active" id="tabs-eg-77">
-
-                        <div class="widget-chat-wrapper-outer">
-                            <div
-                                class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
-                                <!-- chart here -->
-                                <div id="columnchart_material"></div>
-                            </div>
+    <div class="row g-4 mt-4">
+        <div class="col-md-6">
+            <div class="card border-0 shadow bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill fs-3 text-white me-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Completed Reservations</h6>
+                            <p class="mb-0 text-white-50 small">Successfully finalized bookings</p>
                         </div>
+                        <span class="ms-auto badge bg-light text-success fs-5">${dashboardData.totalCompletedReservations()}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow bg-warning text-dark">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-hourglass-split fs-3 text-dark me-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1">Active Reservations</h6>
+                            <p class="mb-0 text-dark small">Currently ongoing bookings</p>
+                        </div>
+                        <span class="ms-auto badge bg-light text-warning fs-5">${dashboardData.totalInProgressReservations()}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Total Orders</div>
-                        <div class="widget-subheading">Expenses from last year</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-success">1896</div>
-                    </div>
+    <div class="row g-4 mt-4">
+        <div class="col-12">
+            <div class="card border-0 shadow bg-white">
+                <div class="card-header fw-bold bg-primary text-white">
+                    Top Clients by Reservations
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Products Sold</div>
-                        <div class="widget-subheading">Revenue streams</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">$3M</div>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Username</th>
+                                <th class="text-center">Email</th>
+                                <th class="text-center">Reservations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${dashboardData.topFiveUsersByReservations().keySet()}" var="user">
+                            <tr>
+                                <td class="text-center">${user.username}</td>
+                                <td class="text-center">${user.email}</td>
+                                <td class="text-center">
+                                    <span class="badge bg-primary text-white">${dashboardData.topFiveUsersByReservations().get(user)}</span>
+                                </td>
+                            </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Followers</div>
-                        <div class="widget-subheading">Interested users</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-danger">45.9%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Income</div>
-                        <div class="widget-subheading">Expected total</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-focus">$147</div>
-                    </div>
-                </div>
-                <div class="widget-progress-wrapper">
-                    <div class="progress-bar-sm progress-bar-animated-alt progress">
-                        <div class="progress-bar bg-info" role="progressbar"
-                            aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"
-                            style="width: 54%;"></div>
-                    </div>
-                    <div class="progress-sub-label">
-                        <div class="sub-label-left">Expenses</div>
-                        <div class="sub-label-right">100%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="main-card mb-3 card">
-            <div class="card-header">
-                Top Teams
-            </div>
-            <div class="table-responsive">
-                <table
-                    class="align-middle mb-0 table table-borderless table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th class="text-center">Photo</th>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${equipes}" var="equipe">
-                        <tr>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle"
-                                                    src="data:image/jpeg;base64,${equipe.personne.getBase64()}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">${equipe.personne.nom} ${equipe.personne.prenom}</td>
-                            <td class="text-center">
-                                <div class="badge badge-warning">${equipe.personne.email}</div>
-                            </td>
-                        </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

@@ -10,6 +10,7 @@ import com.coding.app.models.enums.Brand;
 import com.coding.app.models.enums.Category;
 import com.coding.app.services.CarService;
 import com.coding.app.services.ReservationService;
+import com.coding.app.services.StatisticsService;
 import com.coding.app.services.UserService;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ class DashboardViewAttributes {
     public static final String SHARED_URI = "/shared";
     public static final String JSP_SHARED_DASHBOARD = "dashboard-portal/index";
     public static final String CURRENT_USER = "user";
+    public static final String ATTR_DASHBOARD_DATA = "dashboardData";
 }
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -68,6 +70,7 @@ public final class DashboardController {
     private final UserService userService;
     private final ReservationService reservationService;
     private final CarService carService;
+    private final StatisticsService statisticsService;
 
     @GetMapping(CAR_URI)
     public ModelAndView showCarPage() {
@@ -126,6 +129,7 @@ public final class DashboardController {
         final ModelAndView modelAndView = new ModelAndView(JSP_SHARED_DASHBOARD);
         configureCurrentUser(modelAndView);
         DashboardUtils.activateMenu(DashboardUtils.NavbarMenu.DASHBOARD, modelAndView);
+        modelAndView.addObject(ATTR_DASHBOARD_DATA, statisticsService.getDashboardData());
         return modelAndView;
     }
 
