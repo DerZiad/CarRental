@@ -124,16 +124,16 @@ public class AuthenticationService {
         final User user = userRepository.findById(username).orElseThrow(() -> new NotFoundException("User not found"));
         final List<VerificationCode> codes = verificationCodeRepository.findVerificationCodeByUser(user);
         VerificationCode codeObject = null;
-        for (final VerificationCode vCode: codes) {
+        for (final VerificationCode vCode : codes) {
             if (vCode.getCode().equals(code)) {
                 codeObject = vCode;
             }
         }
-        if (codeObject == null){
+        if (codeObject == null) {
             throw new NotFoundException("The code is invalid");
         }
 
-        if(codeObject.isDead()){
+        if (codeObject.isDead()) {
             final VerificationCode newVerificationCode = createConfirmationCode(user, request);
             user.getVerificationCodes().add(newVerificationCode);
             userRepository.save(user);
@@ -148,6 +148,7 @@ public class AuthenticationService {
     }
 
     // Privates Functions
+
     /**
      * Generates a random 4-digit code as a string.
      *

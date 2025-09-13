@@ -55,7 +55,7 @@ public class UserService {
             user.addRole(ServerRole.ADMIN);
             userRepository.save(user);
             historyService.addHistory("New administrator added " + user.getUsername());
-        }else {
+        } else {
             throw new InvalidObjectException("Invalid user object", errors);
         }
     }
@@ -78,7 +78,7 @@ public class UserService {
             userRepository.save(user);
             historyService.addHistory("New manager added " + user.getUsername());
             return user;
-        }else {
+        } else {
             throw new InvalidObjectException("Invalid user object", errors);
         }
     }
@@ -99,7 +99,7 @@ public class UserService {
      * @throws NotFoundException if user is not found.
      */
     public void banUser(final String username) throws NotFoundException {
-        User user = userRepository.findById(username).orElseThrow(()-> new NotFoundException("User not found"));
+        User user = userRepository.findById(username).orElseThrow(() -> new NotFoundException("User not found"));
         user.setEnabled(false);
         userRepository.save(user);
     }
@@ -124,6 +124,6 @@ public class UserService {
      * @throws NotFoundException if user is not found.
      */
     public User findByUsername(final String username) throws NotFoundException {
-        return userRepository.findById(username).orElseThrow(()-> new NotFoundException("User not found"));
+        return userRepository.findById(username).orElseThrow(() -> new NotFoundException("User not found"));
     }
 }

@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Long> {
 
-	List<VerificationCode> findVerificationCodeByUser(User user);
+    List<VerificationCode> findVerificationCodeByUser(User user);
 }

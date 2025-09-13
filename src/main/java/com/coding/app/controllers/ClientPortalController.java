@@ -25,23 +25,23 @@ import static com.coding.app.controllers.DashboardViewAttributes.CURRENT_USER;
 @RequiredArgsConstructor
 public class ClientPortalController {
 
-	private final static String JSP_CLIENT_PORTAL = "index";
-	private final static String ATTR_CARS = "cars";
+    private final static String JSP_CLIENT_PORTAL = "index";
+    private final static String ATTR_CARS = "cars";
 
-	private final UserService userService;
+    private final UserService userService;
     private final CarService carService;
 
-	@GetMapping("/")
-	public ModelAndView getClientIndexPage() {
-		final ModelAndView model = new ModelAndView(JSP_CLIENT_PORTAL);
-		configureCurrentUser(model);
-		List<Car> cars = carService.getAllCars();
-        if(cars.size() > 6) {
+    @GetMapping("/")
+    public ModelAndView getClientIndexPage() {
+        final ModelAndView model = new ModelAndView(JSP_CLIENT_PORTAL);
+        configureCurrentUser(model);
+        List<Car> cars = carService.getAllCars();
+        if (cars.size() > 6) {
             cars = cars.subList(0, 6);
         }
         model.addObject(ATTR_CARS, cars);
-		return model;
-	}
+        return model;
+    }
 
     private final ClientPortalService clientPortalService;
     private final ReservationService reservationService;
@@ -68,11 +68,11 @@ public class ClientPortalController {
         return ResponseEntity.accepted().build();
     }
 
-	private void configureCurrentUser(ModelAndView model) {
+    private void configureCurrentUser(ModelAndView model) {
         try {
-			final User user = userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
-			model.addObject(CURRENT_USER, user);
+            final User user = userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+            model.addObject(CURRENT_USER, user);
         } catch (NotFoundException ignored) {
         }
-	}
+    }
 }

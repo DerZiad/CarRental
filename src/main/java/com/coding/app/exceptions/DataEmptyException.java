@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 @NoArgsConstructor
-public class DataEmptyException extends Exception{
+public class DataEmptyException extends Exception {
 
-	public DataEmptyException(String msg) {
-		super(msg);
-	}
+    public DataEmptyException(String msg) {
+        super(msg);
+    }
 }

@@ -14,16 +14,16 @@ import java.sql.Date;
 @Data
 public class History {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	
-	private String action;
-	
-	private Date date = new Date(System.currentTimeMillis());
-	
-	public History(String action) {
-		this.action = action;
-	}
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String action;
+
+    private Date date = new Date(System.currentTimeMillis());
+
+    public History(String action) {
+        this.action = action;
+    }
+
 }

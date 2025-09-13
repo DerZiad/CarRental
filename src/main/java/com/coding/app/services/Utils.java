@@ -13,8 +13,7 @@ public interface Utils {
 
     static <T> HashMap<String, String> validate(T object) {
         final HashMap<String, String> errors = new HashMap<String, String>();
-        @Cleanup
-        final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        @Cleanup final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         final Validator validator = factory.getValidator();
         final Set<ConstraintViolation<T>> violatons = validator.validate(object);
         for (ConstraintViolation<T> constraintViolation : violatons) {

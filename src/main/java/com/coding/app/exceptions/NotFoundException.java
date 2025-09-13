@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @NoArgsConstructor
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NotFoundException extends Exception{
+public class NotFoundException extends Exception {
 
-	public NotFoundException(String msg) {
-		super(msg);
-	}
+    public NotFoundException(String msg) {
+        super(msg);
+    }
 }

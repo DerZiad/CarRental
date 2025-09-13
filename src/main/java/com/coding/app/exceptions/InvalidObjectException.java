@@ -14,10 +14,10 @@ import java.util.HashMap;
 @Setter
 public class InvalidObjectException extends Exception {
 
-	private HashMap<String, String> errors = new HashMap<String,String>();
+    private HashMap<String, String> errors = new HashMap<String, String>();
 
-	public InvalidObjectException(String msg, HashMap<String, String> errors) {
-		super(msg);
-		this.errors = errors;
-	}
+    public InvalidObjectException(String msg, HashMap<String, String> errors) {
+        super(msg);
+        this.errors = errors;
+    }
 }

@@ -11,46 +11,47 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="reservations")
+@Table(name = "reservations")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Reservation implements Serializable{
+public class Reservation implements Serializable {
 
-	@EmbeddedId
-	private KeyReservation id;
+    @EmbeddedId
+    private KeyReservation id;
 
-	@Column
-	boolean isConfirmed = false;
-	
-	private long dateCreation = System.currentTimeMillis();
-	
-	private Date startDay;
+    @Column
+    boolean isConfirmed = false;
+
+    private long dateCreation = System.currentTimeMillis();
+
+    private Date startDay;
 
     private Date endDay;
-			
-	/**
-	 * Relations
-	 * */
-	
-	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
-	@MapsId("username") // maps the username field in KeyReservation
-	@JoinColumn(name = "username", referencedColumnName = "username")
-	private User user;
-	
-	
-	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST })
-	@MapsId("carId") // maps the carId field in KeyReservation
-	@JoinColumn(name = "carId", referencedColumnName = "id")
-	@JsonIgnore
-	private Car car;
-			
-	public boolean completed() {
-		return new Date(System.currentTimeMillis()).after(this.endDay);
-	}
+
+    /**
+     * Relations
+     *
+     */
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
+    @MapsId("username") // maps the username field in KeyReservation
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User user;
+
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
+    @MapsId("carId") // maps the carId field in KeyReservation
+    @JoinColumn(name = "carId", referencedColumnName = "id")
+    @JsonIgnore
+    private Car car;
+
+    public boolean completed() {
+        return new Date(System.currentTimeMillis()).after(this.endDay);
+    }
 
     public boolean isOngoing() {
-    	final Date today = new Date(System.currentTimeMillis());
+        final Date today = new Date(System.currentTimeMillis());
         return (today.equals(this.startDay) || today.after(this.startDay)) && (today.equals(this.endDay) || today.before(this.endDay));
     }
 }

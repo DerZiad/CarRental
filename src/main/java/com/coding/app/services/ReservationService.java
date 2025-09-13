@@ -104,7 +104,7 @@ public class ReservationService {
     /**
      * Accepts (confirms) a reservation for a car and user.
      *
-     * @param carId   The car ID.
+     * @param carId    The car ID.
      * @param username The username.
      * @throws NotFoundException if reservation, user, or car is not found.
      */
@@ -122,7 +122,7 @@ public class ReservationService {
     /**
      * Deletes a reservation for a car and user.
      *
-     * @param carId   The car ID.
+     * @param carId    The car ID.
      * @param username The username.
      * @throws NotFoundException if reservation, user, or car is not found.
      */
@@ -139,7 +139,7 @@ public class ReservationService {
     /**
      * Retrieves a reservation by car ID and username or throws if not found.
      *
-     * @param carId   The car ID.
+     * @param carId    The car ID.
      * @param username The username.
      * @return The Reservation object.
      * @throws NotFoundException if not found.
@@ -169,7 +169,7 @@ public class ReservationService {
     /**
      * Sends an email confirmation in a separate thread.
      *
-     * @param to        Recipient email.
+     * @param to         Recipient email.
      * @param letterBody Email body fields.
      */
     private void sendEmailConfirmation(final String to, final Map<String, String> letterBody) {
@@ -203,10 +203,10 @@ public class ReservationService {
     /**
      * Checks if two date ranges overlap.
      *
-     * @param existingStart   Existing reservation start date.
-     * @param existingEnd     Existing reservation end date.
-     * @param requestedStart  Requested reservation start date.
-     * @param requestedEnd    Requested reservation end date.
+     * @param existingStart  Existing reservation start date.
+     * @param existingEnd    Existing reservation end date.
+     * @param requestedStart Requested reservation start date.
+     * @param requestedEnd   Requested reservation end date.
      * @return true if overlap, false otherwise.
      */
     private boolean datesOverlap(final Date existingStart, final Date existingEnd, final Date requestedStart, final Date requestedEnd) {

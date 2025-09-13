@@ -115,7 +115,7 @@ public class AdminController {
     @GetMapping("/admin/ban")
     public ModelAndView banUser(@RequestParam("userType") final String userType, @RequestParam("username") final String username) throws NotFoundException {
         userService.banUser(username);
-        if("manager".equals(userType)) {
+        if ("manager".equals(userType)) {
             return new ModelAndView(REDIRECT_MANAGER);
         } else {
             return new ModelAndView(REDIRECT_ADMIN_CLIENT);

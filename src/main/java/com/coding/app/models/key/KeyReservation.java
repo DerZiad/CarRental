@@ -12,12 +12,12 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class KeyReservation implements Serializable{
+public class KeyReservation implements Serializable {
 
-	@Column(name = "username")
-	private String username;
+    @Column(name = "username")
+    private String username;
 
-	@Column(name = "carId")
-	private Long carId;
+    @Column(name = "carId")
+    private Long carId;
 
 }

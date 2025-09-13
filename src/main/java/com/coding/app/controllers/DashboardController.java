@@ -79,13 +79,13 @@ public final class DashboardController {
 
     @PostMapping(CAR_URI)
     public ModelAndView createCar(
-        @ModelAttribute CarRequest car,
-        @RequestParam(value = "partFile", required = false) MultipartFile imageFile
+            @ModelAttribute CarRequest car,
+            @RequestParam(value = "partFile", required = false) MultipartFile imageFile
     ) {
 
         ModelAndView model;
         try {
-            carService.addCar(car,imageFile);
+            carService.addCar(car, imageFile);
             model = new ModelAndView(REDIRECT_CAR);
         } catch (final InvalidObjectException e) {
             model = getPageCar();
@@ -157,7 +157,7 @@ public final class DashboardController {
 
     // Privates
 
-    private ModelAndView getPageCar(){
+    private ModelAndView getPageCar() {
         final ModelAndView model = new ModelAndView(PAGE_CAR);
         configureCurrentUser(model);
         DashboardUtils.activateMenu(DashboardUtils.NavbarMenu.CAR, model);
