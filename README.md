@@ -36,6 +36,8 @@ A web application for car rental management, built with Spring Boot and MySQL. E
 ## Configuration
 
 - Database credentials and other settings can be adjusted in `docker-compose.yml` and the Spring Boot configuration files.
+- **Spring Mail must be configured:**  
+  Set your email credentials in `application.properties` for `spring.mail.username` and `spring.mail.password` to enable email features.
 
 ## Development
 
